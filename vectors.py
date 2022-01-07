@@ -9,8 +9,8 @@ class vec2:
         self.x = x
         self.y = y
         
-def print(v):
-    print("(" + str(v.x) + "," + str(v.y) + ")")
+    def __stir__(self):
+        return "( %s , %s )" % (self.x, self.y)
     
 def length(v):
     return math.sqrt(v.x*v.x + v.y*v.y);
