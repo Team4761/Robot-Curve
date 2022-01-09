@@ -11,6 +11,11 @@
     <OutputPath>.</OutputPath>
     <Name>Robot Curve</Name>
     <RootNamespace>Robot Curve</RootNamespace>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterArguments>
+    </InterpreterArguments>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
+    <CommandLineArguments>-fd "D:\Desktop\robockets code\Robot Curve Python\curve rays.txt"</CommandLineArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +26,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="constants.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ray.py">
       <SubType>Code</SubType>
     </Compile>
