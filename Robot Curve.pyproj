@@ -15,7 +15,7 @@
     <InterpreterArguments>
     </InterpreterArguments>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
-    <CommandLineArguments>-fd "D:\Desktop\robockets code\Robot Curve Python\curve rays.txt"</CommandLineArguments>
+    <CommandLineArguments>-fd "D:\Desktop\robockets code\Robot Curve Python\curve rays.txt" -out "D:\Desktop\robockets code\Robot Curve Python\lines.txt"</CommandLineArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>

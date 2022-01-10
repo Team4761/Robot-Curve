@@ -123,7 +123,7 @@ def get_right_motor_length(a,b,t,robot_width):
 #the trajectory of one bezier curve
 #omni-potent count variable
 count = 5
-def curve_trajectory(a,b,robot_width):
+def curve_trajectory(a,b,robot_width,outdir=None):
 	
 	# generate the list of set points
 	t = []
@@ -140,10 +140,29 @@ def curve_trajectory(a,b,robot_width):
 		l.append(get_left_motor_length(a,b,p,robot_width))
 		r.append(get_right_motor_length(a,b,p,robot_width))
 
-	o = 0
-	while o < len(t):
-		print("Setpoint:", t[o], "Left:", l[o], "Right:",r[o])
-		o+=1
+	if outdir is None or outdir == "console":
+
+		print("new bezier curve")
+		o = 0
+		while o < len(t):
+			print("Setpoint:", t[o], "Left:", l[o], "Right:",r[o])
+			o+=1
+
+	elif outdir == "port":
+
+		print("Currently cannot pass to a wifi port")
+
+	else:
+
+		outfile = open(outdir,'a')
+		
+		outfile.write("new bezier curve \n")
+		o = 0
+		while o < len(t):
+			outfile.write(str(l[o]) + "," + str(r[o]) + "\n")
+			o+=1
+		outfile.close()
+
 
 def debug_main():
 	a = point(vec2(0,0),vec2(0.1,0.1))
@@ -168,6 +187,7 @@ def __main__():
 			outdir = sys.argv[4]
 	except Exception as E:
 		print("No out file. Printing to console...")
+		outdir = "console"
 
 
 	#open the file
@@ -191,7 +211,7 @@ def __main__():
 			continue
 
 		currpt = parse_string(point)
-		curve_trajectory(prevpt, currpt, robot_width)
+		curve_trajectory(prevpt, currpt, robot_width,outdir)
 		prevpt = currpt
 
 	
